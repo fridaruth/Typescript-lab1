@@ -1,40 +1,48 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-course-app</title>
-  </head>
-  <body>
-    <div id="app">
-      <h1>Mina Kurser</h1>
-      <form id="course-form">
-        <input type="text" id="code" placeholder="Kurskod (t.ex. DT211G)" required>
-        <input type="text" id="name" placeholder="Kursnamn" required>
-        <select id="progression">
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-        </select>
-        <input type="url" id="syllabus" placeholder="URL till kursplan" required>
-        <button type="submit">Lägg till kurs</button>
-      </form>
 
-      <table id="course-list">
-        <thead>
-          <tr>
-            <th>Kurskod</th>
-            <th>Kursnamn</th>
-            <th>Progression</th>
-            <th>Kursplan</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tbody id="course-tbody">
-        </tbody>
-      </table>
+<head>
+  <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <script type="module" src="/src/main.ts"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mina kurser</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Mina Kurser</h1>
+    <form id="course-form">
+      <input type="text" id="code" placeholder="Kurskod (t.ex. DT211G)" required>
+      <input type="text" id="name" placeholder="Kursnamn" required>
+      <select id="progression">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+      </select>
+      <input type="url" id="syllabus" placeholder="URL till kursplan" required>
+      <button type="submit" id="add-button">Lägg till kurs</button>
+    </form>
+
+    <div id="course-container">
+    <table id="course-list">
+      <thead>
+        <tr>
+          <th>Kurskod</th>
+          <th>Kursnamn</th>
+          <th>Progression</th>
+          <th>Kursplan</th>
+          <th>Hantera</th>
+        </tr>
+      </thead>
+      <tbody id="course-tbody">
+      </tbody>
+    </table>
     </div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+  </div>
+</body>
+
 </html>

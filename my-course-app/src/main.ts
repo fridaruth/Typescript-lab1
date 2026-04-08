@@ -1,4 +1,6 @@
 import type { CourseInfo } from './models/Course';
+import './scss/main.scss';
+
 // hämta data från localStorage
 let courses: CourseInfo[] = JSON.parse(localStorage.getItem("courses") || "[]");
 
@@ -32,6 +34,24 @@ function displayCourses(): void {
 
     courseTable.appendChild(row);
   });
+
+  setupDeleteListeners();
+
+}
+
+function setupDeleteListeners(): void {
+  const deleteButtons = document.querySelectorAll(".delete-btn");
+
+  deleteButtons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const target = e.currentTarget as HTMLButtonElement;
+      const index = parseInt(target.getAttribute("data-index") || "0");
+      deleteCourse(index);
+    });
+  });
+}
+
+
 // funktion för att lägga till
 function addCourse(code: string, name: string, progression: string, syllabus: string): void {
   //validering
@@ -50,6 +70,16 @@ function addCourse(code: string, name: string, progression: string, syllabus: st
   courses.push(newCourse);
   saveToStorage();
 }
+
+function deleteCourse(index: number): void {
+  const confirmDelete = confirm("Är du säker på att du vill radera kursen?");
+
+  if (confirmDelete) {
+  courses.splice(index, 1);
+  saveToStorage();
+  }
+}
+
 // eventlyssnare för formulär
 courseForm.addEventListener("submit", (e: Event) => {
   e.preventDefault();

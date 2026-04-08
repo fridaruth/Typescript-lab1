@@ -1,0 +1,136 @@
+@use "sass:color";
+@use "base" as *;
+
+body {
+        background: $light-bg;
+}
+
+#app {
+    width: 100%;
+    max-width: 1000px;
+    min-height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+#course-container {
+    overflow-x: auto;
+    width: 100%;
+    margin-top: 2rem;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    border-color: $white;    
+
+    thead {
+        background-color: $text;
+        color: white;
+    }
+
+    th, td {
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    td {
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+
+    td:nth-child(2) {
+        white-space: normal;
+        min-width: 200px;
+    }
+
+    tbody {
+        tr {
+            background-color: $white;
+            &:nth-child(even) {
+                background-color: $bg-color;
+            }
+            &:hover {
+                background-color: color.adjust($light-bg, $lightness: -5%)
+            }
+        }
+
+        a.link-btn {
+            color: $accent;
+            text-decoration: none;
+            font-weight: bold;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+#course-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 600px;
+
+    @media (min-width: 600px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+input, select {
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+}
+
+#add-button {
+    background-color: $accent;
+    color: white;
+    display: block;
+    width: 100%;
+    border: 2px solid $accent;
+    border-radius: 10px;
+    padding: 0.6rem 2rem;
+    font-weight: 550;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+        background-color: white;
+        color: $accent;
+    }
+}
+
+.delete-btn {
+    background-color: transparent;
+    border: 1px solid $accent;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1.1rem;
+
+    &:hover {
+        background-color: $accent;
+        transform: scale(1.1);
+    }
+}
